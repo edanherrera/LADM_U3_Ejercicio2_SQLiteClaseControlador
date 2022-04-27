@@ -111,6 +111,41 @@ class Alumno(este:MainActivity) {
         return true
     }
 
+    fun eliminar(noControlEliminar : String): Boolean {
+        val baseDatos = BaseDatos(este,"escuela",null,1)
+        err = ""
+        try {
+            var tabla = baseDatos.writableDatabase
+            val resultado = tabla.delete("ALUMNO","NOCONTROL=?", arrayOf(noControlEliminar))
+
+            if (resultado == 0) return false
+
+        }catch (err:SQLiteException){
+            this.err = err.message!!
+            return false
+        }finally {
+            baseDatos.close()
+        }
+        return true
+    }
+    fun eliminar() : Boolean {
+        val baseDatos = BaseDatos(este,"escuela",null,1)
+        err = ""
+        try {
+            var tabla = baseDatos.writableDatabase
+            val resultado = tabla.delete("ALUMNO","NOCONTROL=?", arrayOf(noControl))
+
+            if (resultado == 0) return false
+
+        }catch (err:SQLiteException){
+            this.err = err.message!!
+            return false
+        }finally {
+            baseDatos.close()
+        }
+        return true
+    }
+
 }
 
 /*
