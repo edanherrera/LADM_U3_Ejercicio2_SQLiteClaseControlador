@@ -2,9 +2,10 @@ package mx.tecnm.tepic.ladm_u3_ejercicio2_sqliteclasecontrolador
 
 import android.app.AlertDialog
 import android.content.ContentValues
+import android.content.Context
 import android.database.sqlite.SQLiteException
 
-class Alumno(este:MainActivity) {
+class Alumno(este:Context) {
     private val este = este
     var noControl = ""
     var nombre = ""
